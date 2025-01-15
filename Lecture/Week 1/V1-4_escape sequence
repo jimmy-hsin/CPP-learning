@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    cout<<' \n ' //換行
+    cout<<' \t ' //A horizontal tab
+    cout<<' \\ ' //反斜槓(A slash ):\ 反斜槓 
+    cout<<' \' ' //A single quotation: '
+    cout<<' \" ' //A double quotation: "
+    
+    cout<<' \a ' //蜂鳴器警報 (alert bell)
+    cout<<' \b ' //後退一格（Backspace）
+    cout<<' \f ' //換頁（formfeed）
+    cout<<' \0 ' //空字元(NULL)
+    cout<<' \r ' //回車（Enter）
+    
+
+}
