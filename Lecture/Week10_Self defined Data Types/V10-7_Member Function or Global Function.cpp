@@ -25,9 +25,26 @@ void Point::print() //strcut 下的function, 把x,y印出來
 
 double Point::distance(Point p)  //計算被宣告的Point到已存在的點p之間的距離 
 {
-    double dist=sqrt( pow(x-p.x, 2) + pow(y-p.y, 2) );
+    double dist=sqrt( pow(x - p.x, 2) + pow(y - p.y, 2) );
     return dist;
 }
+//千萬不要這樣寫: 
+/*
+Bad example 1: 
+    double Point::distance(Point p)      //只是在計算P點的距離而已，計算結果跟自己沒有關係，沒必要變成一個member function
+    {
+        double dist=sqrt( pow(p.x, 2) + pow(p.y, 2) );   
+        return dist;
+    }
+
+Bad example 2: 
+    double Point::distance(Point p)      //只是在計算自己點的距離而已，計算結果跟P點沒有關係，沒必要把P點當作傳入的argument
+    {
+        double dist=sqrt( pow(x, 2) + pow(y, 2) );   
+        return dist;
+    }
+
+*/
 
 int main()
 {
@@ -35,8 +52,10 @@ int main()
     Point b={5,2};
     a.print();
     b.print();
+    
     a.reflect();
     b.reflect();
+    
     a.print();
     b.print();
     cout<<a.distance(b);
