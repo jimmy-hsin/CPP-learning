@@ -14,6 +14,7 @@ int main()
 void reverse(char p[])
 {
     int n=strlen(p);       //取得p的字串長度
+    /* 講義寫法:
     char* temp=new char[n];//新增一個字串 temp
     for(int i=0;i<n;i++)   //將p字串 倒著裝進 temp字串
         temp[i]=p[n-1-i];
@@ -21,6 +22,14 @@ void reverse(char p[])
         p[i]=temp[i];
         
     delete [] temp;        //砍掉temp，釋放temp字串的記憶體空間
+    */
+
+    //高效寫法:
+    int n=strlen(p);       //取得p的字串長度，也就是傳入的指標 到 陣列結尾(也就是\0) 的長度
+    for(int i=0;i<n/2;i++)   //將p字串 倒著裝進 temp字串
+    {
+        swap(p[i], p[n-1-i]);
+    }
 }
 
 void print(char* p)
