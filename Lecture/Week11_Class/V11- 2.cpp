@@ -20,3 +20,12 @@ void MyVector::print(){
       cout<<m[i]<<", ";
   cout<<m[n-1]<<")";
 }
+
+int main(){
+  MyVector v;
+  v.init(3);
+  v.m[0]=3;
+  v.print();
+  delete [] v.m;
+  return 0;
+}
