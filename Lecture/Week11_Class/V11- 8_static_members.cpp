@@ -33,7 +33,7 @@ public:
     static void setBarColour(int colour);
 };
 
-int Window::barColour=0; //static variable應該要被globally initialize
+int Window::barColour=0; //***static variable應該要被globally initialize***
 
 int Window::getBarColour()
     {    return barColour;   }
