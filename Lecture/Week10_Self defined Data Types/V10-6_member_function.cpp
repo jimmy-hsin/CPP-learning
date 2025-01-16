@@ -12,10 +12,10 @@ struct Point
         return sqrt(pow(x,2)+pow(y,2));//sqrt: 取根號 ;   pow(a,b): 回傳a的b次方的值
     }
     //另類寫法:
-    double distOri_2();   
+    double distToOri_2();   
 };
 //另類寫法:
-double Point::distOri_2()
+double Point::distToOri_2()
 {
     return sqrt( pow(x,2) + pow(y,2) );
 }
