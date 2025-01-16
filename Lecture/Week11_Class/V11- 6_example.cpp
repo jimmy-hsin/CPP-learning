@@ -24,9 +24,9 @@ public:
 int main()
 {
     B b;//
-    //1.B裡面第一行遇到A，所以先進行A的Constructor (印出AA)
-    //2.運行B的constructor                       (印出BB)
-    //3.B的block運行結束，運行destructor          (印出bb)
-    //4.Class A隨著B結束，A的物件也被消滅          (印出aa) 
+    //1.成員變數的construct 先於 自身類別的construct              (印出AA)
+    //2.運行B的constructor                                      (印出BB)
+    //3.B的block運行結束，運行destructor                         (印出bb)
+    //4.在解構過程中，成員變數的 destructor會後於類別的 destructor (印出aa) 
     return 0;
 }
