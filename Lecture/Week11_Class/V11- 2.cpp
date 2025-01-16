@@ -6,7 +6,7 @@ struct MyVector{
   int* m;
   void init(int dim);
   void print();
-}
+};
 void MyVector::init(int dim){
   n=dim;
   m=new int[n];
