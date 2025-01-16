@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 /*
+   
     *A class contains some instance variables and functions 
         Each objects has its own copy of instance variables and functions
     *A member variabel/function may be an atteibute/operation of a class
@@ -9,6 +10,10 @@ using namespace std;
         A class-specific attribute/operatiob should be identical for all objects.
     *這些變數/方法就被叫做static member     
         (These variable/functions are called static members.)
+        
+    *如果更改static member的屬性，其影響會直接擴散到之前以創建的class中
+       這是因為不管創建幾個class，其中針對static member 的指針都是指向同一塊記憶體位址
+    *因此static member 在系統中只會有一個副本
     
     Example: windows 程式上方header/title bar 的顏色/字型/大小......
     每個程式開起來都會是一樣的東西，就是Class-specific 的屬性
