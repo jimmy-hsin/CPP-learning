@@ -34,6 +34,9 @@ public:
 };
 
 int Window::barColour=0; //***static variable應該要被globally initialize***
+//相較於各別創建的物件(instance), 這邊的初始化要用class name而不是創建出來的object name(理論上你應該也還沒用這個class創建任何物件，當然已經創建了也可以事後修改static member)
+//static :  className::memberName
+//other instance member:  objName.memberName
 
 int Window::getBarColour()
     {    return barColour;   }
