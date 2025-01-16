@@ -21,6 +21,7 @@ void Myvector::init(int dim)
 {
     init(dim,0);   //call下面有兩個argument的function
 }
+//不同的初始化，讓陣列中所有元素都被設成value
 void Myvector::init(int dim, int value)
 {
     n=dim;
