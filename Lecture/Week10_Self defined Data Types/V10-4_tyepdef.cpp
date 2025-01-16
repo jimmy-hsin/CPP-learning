@@ -13,6 +13,13 @@ int exchange(Dollar from, double rate)
     return from*rate;
 }
 
+//以之前的point 舉例，理論上向量和點的資料型態一樣，但數學概念不同，為了區分兩者我們可以給他一個別名，以區分兩種概念
+typedef struct Point{
+    int x;
+    int y;
+}Vector;
+//這樣我們就能用Vector當作變數名稱來操作point
+
 int main()
 {
     typedef double Dollar;
