@@ -15,5 +15,8 @@ void MyVector:: init(int dim){
 }
 
 void MyVector::print(){
-  
+  cout<<"(";
+  for(int i=0;i<n-1;i++)
+      cout<<m[i]<<", ";
+  cout<<m[n-1]<<")";
 }
