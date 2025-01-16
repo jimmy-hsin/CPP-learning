@@ -25,7 +25,7 @@ private:
     int n;
     int* m;
 public:
-    MyVector(int dim=0,int value=0); //若只傳一個參數進來，第二個參數'value'的預設值為0
+    MyVector(int dim=0,int value=0); //若沒傳參數，兩個都預設0，隨著傳入參數數量，逐步更改預設值
     void print();
 };
 
