@@ -24,7 +24,8 @@ using namespace std;
         long long c;    //8byte，第一排塞不下了，換下一排
         bool b;    //1byte，第二排塞滿了，換下一排
     };
-
+/*
+*/
 
 struct Point
 {
