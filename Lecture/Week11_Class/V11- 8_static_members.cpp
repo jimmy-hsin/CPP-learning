@@ -50,7 +50,7 @@ void Window::setBarColour(int color)
 class A
 {
 private:
-    static int count;   //可以用來記錄現在class 現在創建了多少個物件
+    static int count;   //可以用來記錄現在class A現在有多少個alive 的物件
 public:
     A()
         {A::count++;}
