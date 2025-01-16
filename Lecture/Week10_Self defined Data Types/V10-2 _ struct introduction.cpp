@@ -14,7 +14,7 @@ struct Point  //宣告一個新的資料型態叫做 Point，就類似於整數�
 {
     int x;
     int y;
-};       //這邊要記得打分號
+};       //***這邊要記得打分號***
 
 Point vector(Point A, Point B)   //創建一個function，其中回傳值為Point，傳入值為兩個Point值
 {
