@@ -1,6 +1,31 @@
 #include <iostream>
 using namespace std;
 
+/*
+    注意!!! 使用c語言的struct會有記憶體對齊的現象，通常以8byte 為一個單位，因此需要謹慎排列struct中的member element的順序
+    int: 4byte
+    char:1 byte
+    bool: 1 byte
+    short: 2 byte
+    long long : 8 byte
+    double: 8 byte
+    
+*/
+ //ex1:以下的排序，一個struct的大小為16byte
+    struct mystruct{
+        int a;    //4byte
+        bool b;   //1byte 第一排8byte還沒塞滿，可以繼續塞
+        long long c;    //8byte，第一排塞不下了，換下一排
+    };
+    
+//ex2:以下的排序，一個struct的大小為24byte
+    struct mystruct{
+        int a; //4byte
+        long long c;    //8byte，第一排塞不下了，換下一排
+        bool b;    //1byte，第二排塞滿了，換下一排
+    };
+
+
 struct Point
 {
     int x;
