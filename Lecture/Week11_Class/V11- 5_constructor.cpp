@@ -26,7 +26,7 @@ private:
     int* m;
 public:
     MyVector(); //default constructor
-    MyVector(int dim,int value=0); //若只傳一個參數進來，第二個的default value為0
+    MyVector(int dim,int value=0); //若只傳一個參數進來，第二個參數'value'的預設值為0
     void print();
 };
 
