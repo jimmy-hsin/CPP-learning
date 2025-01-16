@@ -7,7 +7,7 @@ struct Point
     int y;
 };
 
-void reflect(Point &a)  //設定一個function 負責把Point.x跟Point.y位置中存取的值互換
+void reflect(Point& a)  //設定一個function 負責把Point.x跟Point.y位置中存取的值互換
 {                       //相當於把座標對x=y的直線做對稱
     int temp=a.x;
     a.x=a.y;
