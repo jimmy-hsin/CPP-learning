@@ -3,7 +3,7 @@ using namespace std;
 
 struct MyVector{
   int n;
-  int* m;
+  int* m;  //動態配置記憶體用
   void init(int dim);
   void print();
 };
@@ -26,6 +26,6 @@ int main(){
   v.init(3);
   v.m[0]=3;
   v.print();
-  delete [] v.m;
+  delete [] v.m;//釋放struct 的記憶體
   return 0;
 }
