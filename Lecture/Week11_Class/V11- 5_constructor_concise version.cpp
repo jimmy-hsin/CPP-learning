@@ -42,3 +42,14 @@ MyVector::MyVector(int dim,int value)
           m[i]=value;
     }
 }
+void MyVector::print(){
+    if (n == 0) {
+        std::cout << "Empty vector!" << std::endl;
+    }
+    else{
+      cout<<"(";
+      for(int i=0;i<n-1;i++)
+          cout<<m[i]<<", ";
+      cout<<m[n-1]<<")";
+    }
+}
