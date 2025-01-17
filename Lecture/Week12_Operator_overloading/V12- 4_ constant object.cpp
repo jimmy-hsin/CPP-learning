@@ -37,7 +37,7 @@ MyVector:: MyVector(const MyVector& v) : n(v.n)
   for(int i = 0; i < n; i++)
     m[i] = v.m[i];
 }
-void MyVector::print() const{ //這邊也要記得補const
+void MyVector::print() const{ //這邊也要記得補const，因為有可能會有overloading (沒有const)的版本，所以要保持一致才知道你在講誰
     cout << "(";
     for(int i = 0; i < n - 1; i++)
         cout << m[i] << ", ";
