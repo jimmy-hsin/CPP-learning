@@ -24,7 +24,7 @@ class A
     /*
     如果沒有自己定義copy constructor，那麼系統會幫你做一個default 的 copy constructor，
         The default copy constructor simply copies all member variables one by one, regardless of the variable types
-        所以member variables中如果有ptr的話，後續操作容易出錯
+        所以member variables中如果有ptr或陣列(底層邏輯仍是ptr)的話，後續操作容易出錯
     */
 };
 
