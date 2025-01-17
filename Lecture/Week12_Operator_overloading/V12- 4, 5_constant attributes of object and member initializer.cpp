@@ -18,10 +18,10 @@ class MyVector{
     bool isEqual(const MyVector& v) const;
 };
 
-MyVector::MyVector():n(0){  //由於n已經被const 宣告了，所以要用member initializer的寫法
+MyVector::MyVector():n(0){  //由於n已經被const 宣告了，所以要用member initializer的寫法才能設定n的初始值
     m=nullptr;
 }
-//也可以寫成下面這樣:
+//也可以寫成下面這樣，都用member initializer來寫:
 MyVector::MyVector() : n(0), m(nullptr) {}
 
 //!!!***如果member variable 的初始化都是簡單形式的話，建議都用member initializer的寫法***!!!
@@ -45,6 +45,7 @@ void MyVector::print() const{   //這邊也要記得補const，因為有可能�
         cout << m[i] << ", ";
     cout << m[n-1] << ")\n";
 }
+
 //const 放在最左邊跟放在最右邊意思不一樣，放在最左邊的意思是回傳值是一個constant variable，最右邊代表這是一個constant function
 bool MyVector::isEqual(const MyVector& v) const{    
     if(n!=v.n)                                
@@ -56,7 +57,7 @@ bool MyVector::isEqual(const MyVector& v) const{
     return true;
 }
 //要判斷一個function能不能成為constant function很簡單，看看function 裡面有沒有 '=' (賦值)就知道了
-//而其他function操作中我們也要避免 constant variable 被放到 '=' 的左邊
+//而其他function操作中我們也要避免物件的constant variable 被放到 '=' 的左邊
 
 int main()
 {
