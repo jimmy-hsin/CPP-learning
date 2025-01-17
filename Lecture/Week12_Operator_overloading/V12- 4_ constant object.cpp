@@ -11,8 +11,8 @@ class MyVector{
     MyVector:: MyVector(const MyVector& v); //copy constructor
 /*
   如果一個object被宣告成const 的話，那麼他只能呼叫也有被宣告成const 的function
-  而const function 的操作也不能修該到class 裡的變數，不然會compilation error
-  而const function 還是能被一般普通的object呼叫
+  而const function 的操作也不能修改到class 裡的變數，不然會compilation error
+  const function 還是能被一般普通的object呼叫
 */
     void print() const;  
 };
@@ -37,22 +37,16 @@ MyVector:: MyVector(const MyVector& v) : n(v.n)
   for(int i = 0; i < n; i++)
     m[i] = v.m[i];
 }
-
-
-void MyVector::print() const{
+void MyVector::print() const{ //這邊也要記得補const
     cout << "(";
     for(int i = 0; i < n - 1; i++)
         cout << m[i] << ", ";
     cout << m[n-1] << ")\n";
 }
 
-
-
 int main()
 {
-    A obj;
-    cout << &obj << "\n"; // 0x9ffe40
-    obj.f(); // 0x9ffe40
-    cout << (&obj == obj.g()) << "\n"; // 1
-    return 0;
+  //有的時候我們會希望建立一個variable都不會被更動的物件，比如說座標原點(dimension和位置都不變動)
+  double d[3] = {0, 0, 0};
+  const MyVector ORIGIN_3D(3, d);
 }
