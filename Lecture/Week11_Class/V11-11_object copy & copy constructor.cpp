@@ -23,8 +23,9 @@ class A
         {cout<<"a";}
     /*
     如果沒有自己定義copy constructor，那麼系統會幫你做一個default 的 copy constructor，
-        The default copy constructor simply copies all member variables one by one, regardless of the variable types
+        The default copy constructor simply copies all member variables one by one, regardless of the variable types (shallow copy) 
         所以member variables中如果有ptr或陣列(底層邏輯仍是ptr)的話，後續操作容易出錯
+    因此我們會希望自己能定義copy constructor，來完成deep copy，以避免出錯(也就是如果有ptr的話把ptr的內容寫進正確的位址； 如果有陣列的話，自己重新new一塊空間，再把copy source 的value 寫進去)
     */
 };
 
