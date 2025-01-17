@@ -54,6 +54,7 @@ class MyVector
         MyVector sumOfVec(n,sov);
         return sumOfVec;
     }
+
     //  --------Passing constant object reference into a function----------------------
     MyVector sum4(const MyVector& v1,const MyVector& v2,const MyVector& v3)   //最好，因為我們通常需要確保傳入的物件，他不會被修改，所以用const保護他
     {
