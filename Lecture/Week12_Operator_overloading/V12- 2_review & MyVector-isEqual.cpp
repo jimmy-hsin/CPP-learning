@@ -31,13 +31,13 @@ MyVector::MyVector() //default constuctor
 }
 MyVector::MyVector(int dim, double v[]) //self define constuctor
 {   n=dim;
-    m=new double[dim];   //先new出一塊空間，再把V值傳進去，避免shallow copy
+    m=new double[dim];   
     for(int i=0;i<dim;i++)
         m[i]=v[i];          
 }
 MyVector::MyVector(const MyVector& v)    //copy constuctor
 {   n=v.n;
-    m=new double [n];
+    m=new double [n];    //先new出一塊空間，再把V值傳進去，避免shallow copy
     for(int i=0;i<n;i++)
         m[i]=v.m[i];        
 }
@@ -49,14 +49,13 @@ void MyVector::print()
     cout<<m[n-1]<<")\n";    
 }
 
-bool MyVector::isEqual(const MyVector& v){    //如果不用constant reference的話，傳入的值會呼叫copy constructor，會耗費很多資源
-    if(n!=v.n)                               //加const避免 reference 被改掉
-        return false;
-    else{   
-        for(int i=0;i<n;i++)
-            if(m[i]!=v.m[i])
-                return false;          
-    }
+bool MyVector::isEqual(const MyVector& v){    //如果不用reference的話，傳入的值會呼叫copy constructor，會耗費很多資源
+    if(n!=v.n)                                //而加const 是為了避免reference 被改掉
+        return false; 
+    
+    for(int i=0;i<n;i++)
+        if(m[i]!=v.m[i])
+            return false;          
     return true;
 }
 
