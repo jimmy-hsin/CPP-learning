@@ -16,14 +16,16 @@ class A
     /*
     copy constructor: 
         用來複製object用的，指定傳入值要是reference，
-        不然copy的時候會一直call copy constructor，沒完沒了
+        不然copy的時候會一直call copy constructor，沒完沒了，(想像一下如果是call by value，那這個函數會需要locally新建一個object，而這個動作會呼叫copy constructor，所以會沒完沒了)
         指定要用const，因為你不會希望傳入值被更動到
+    */
+    A(const A& a)
+        {cout<<"a";}
+    /*
     如果沒有自己定義copy constructor，那麼系統會幫你做一個default 的 copy constructor，
         The default copy constructor simply copies all member variables one by one, regardless of the variable types
         所以member variables中如果有ptr的話，後續操作容易出錯
     */
-    A(const A& a)
-        {cout<<"a";}
 };
 
 void f(A a1,A a2,A a3)
@@ -41,7 +43,7 @@ int main()
     A a4(a1); //呼叫1次copy constructor
     cout<<"\n===\n";
     
-    A a5=a1;  //用assign的方式跟用copy constructor 一樣
+    A a5=a1;  //用assign的方式跟用copy constructor 一樣，所以a4, a5沒有什麼不同
     return 0;
 }
 
