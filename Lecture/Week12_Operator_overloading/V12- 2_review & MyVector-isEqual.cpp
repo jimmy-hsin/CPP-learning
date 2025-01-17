@@ -4,7 +4,8 @@ using namespace std;
     Operator overloading:
         1.限制
             a.不是所有的operator都可以做overloading
-            b.Operands的數量
+            b.不能改變Operands的數量，例如除法一定是兩個argument，不能說我現在有一個除法可以傳入三個operands
+            c.不能create 新的 operators，只能用已經有的東西 
 */
 class MyVector
 {
