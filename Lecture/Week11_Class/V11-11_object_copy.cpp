@@ -7,15 +7,20 @@ using namespace std;
 */
 class A
 {
-private:
+  private:
     int i;
-public:
-    A()        //constructor
-        {cout<<"A";}
+  public:
+    A()    
+        {cout<<"A";}    //constructor
     
-    /* copy constructor: 用來複製object用的，指定傳入值要是reference，
-    不然copy的時候會一直call copy constructor，沒完沒了
-    指定要用const，因為你不會希望傳入值被更動到
+    /*
+    copy constructor: 
+        用來複製object用的，指定傳入值要是reference，
+        不然copy的時候會一直call copy constructor，沒完沒了
+        指定要用const，因為你不會希望傳入值被更動到
+    如果沒有自己定義copy constructor，那麼系統會幫你做一個default 的 copy constructor，
+        The default copy constructor simply copies all member variables one by one, regardless of the variable types
+        所以member variables中如果有ptr的話，後續操作容易出錯
     */
     A(const A& a)
         {cout<<"a";}
@@ -26,16 +31,16 @@ void f(A a1,A a2,A a3)
     A a4;
 }
 
-
-
 int main()
 {
     A a1,a2,a3;   //會呼叫3次constructor
     cout<<"\n===\n";
-    f(a1,a2,a3);  //因為要將a1~a3傳入function f，所以會將這些值複製進f裡，會呼叫3次copy constructor 然後呼叫1次constructor
+    f(a1,a2,a3);  //因為要將a1~a3傳入function f，所以會將這些值複製進f裡，會呼叫3次copy constructor(傳入的a1~a3) 然後呼叫1次constructor(a4)
     cout<<"\n===\n";
+    
     A a4(a1); //呼叫1次copy constructor
     cout<<"\n===\n";
+    
     A a5=a1;  //用assign的方式跟用copy constructor 一樣
     return 0;
 }
