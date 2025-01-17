@@ -24,7 +24,7 @@ public:
     int getM(int i)
         {return m[i];}
    
-    //  --------Passing Value into  a function-----------------------------------------
+    //  --------Passing Value into a function-----------------------------------------
     MyVector sum1(MyVector v1,MyVector v2,MyVector v3)
     {
         int n=v1.getN();
@@ -35,7 +35,7 @@ public:
         return sumOfVec;
     }
     
-    //  --------Passing object pointer into  a function-----------------------------
+    //  --------Passing object pointer into a function-----------------------------
     MyVector sum2(MyVector* v1,MyVector* v2,MyVector* v3)
     {
         int n=v1->getN();
@@ -46,7 +46,7 @@ public:
         return sumOfVec;
     }
 
-    //  --------Passing object reference into  a function----------------------
+    //  --------Passing object reference into a function----------------------
     MyVector sum3(MyVector& v1,MyVector& v2,MyVector& v3)   //這個情況下只會建立一個MyVector的object
     {
         int n=v1.getN();
