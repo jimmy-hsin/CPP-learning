@@ -19,37 +19,6 @@ Dynamic Object arrays
 
 
 */
-class MyVector
-{
-private:
-    int n;
-    int* m;
-public:
-    MyVector(); //default constructor
-    MyVector(int dim,int value=0); //若只傳一個參數進來，第二個的default value為0
-    void print();
-};
-
-MyVector::MyVector()
-{
-    n=0;
-    m=nullptr;
-}
-MyVector::MyVector(int dim,int value)
-{
-    n=dim;
-    m=new int[n];
-    for(int i=0;i<n;i++)
-        m[i]=value;
-}
-void MyVector::print() 
-{
-    cout << "(";
-    for(int i = 0; i < n - 1; i++)
-        cout << m[i] << ", ";
-    cout << m[n-1] << ")\n";
-}
-
 
 int main()
 {
@@ -83,18 +52,50 @@ int main()
     ptrV3[0].print();
     delete [] ptrV3;
 
-    //正確做法:
+  //正確做法:
     MyVector* ptrArray[5];    //先建立一個pointer 陣列
     for(int i=0;i<5;i++)      //等到要用到的時候才用pointer 指向的空間去初始化/創建 object
         ptrArray[i]=new MyVector(i+1);//在這邊可以呼叫指定的constructor
     
     ptrArray[0]->print();
-    //這條要補 delete statements
-    delete [] ptrArray[0];
+        
+    for(int i=0;i<5;i++)      //delete statements
+        delete ptrArray[i];
 
     return 0;
 }
 
+
+
+
+class MyVector{
+  private:
+    int n;
+    int* m;
+  public:
+    MyVector(); //default constructor
+    MyVector(int dim,int value=0); //若只傳一個參數進來，第二個的default value為0
+    void print();
+};
+
+MyVector::MyVector(){
+    n=0;
+    m=nullptr;
+}
+
+MyVector::MyVector(int dim,int value){
+    n=dim;
+    m=new int[n];
+    for(int i=0;i<n;i++)
+        m[i]=value;
+}
+
+void MyVector::print() {
+    cout << "(";
+    for(int i = 0; i < n - 1; i++)
+        cout << m[i] << ", ";
+    cout << m[n-1] << ")\n";
+}
 
 
 
