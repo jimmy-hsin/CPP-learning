@@ -1,6 +1,9 @@
 #include <iostream>
 using namespace std;
-
+/*
+  this 是一個指標，指向的位址就是物件的記憶體位址
+  所以我們要取值的時候可以用->來取用member element
+*/
 class A
 {
   private:
