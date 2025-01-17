@@ -25,7 +25,7 @@ void reverse(char p[])    //基本上就是傳入一個指標
     */
 
     //高效寫法:
-    for(int i=0;i<n/2;i++)   //將p字串 倒著裝進 temp字串
+    for(int i=0;i<n/2;i++)  
     {
         swap(p[i], p[n-1-i]);
     }
