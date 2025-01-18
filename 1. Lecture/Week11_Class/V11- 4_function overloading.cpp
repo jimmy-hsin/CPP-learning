@@ -25,7 +25,7 @@ void Myvector::init(int dim)
 void Myvector::init(int dim, int value)
 {
     n=dim;
-    m-new int[n];
+    m=new int[n];
     for(int i=0;i<n;i++)
         m[i]=value;
 }
