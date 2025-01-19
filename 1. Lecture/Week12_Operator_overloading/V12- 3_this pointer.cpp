@@ -39,9 +39,9 @@ MyVector::MyVector(int dim, int v[])
     m[i] = v[i];
 }
 //用this的寫法
-//如果不用this的話，由於local variable (傳入值)的取名權限高於instance variable(物件的變數)，
-//所以會變成local variable 對自己賦值(兩個n都是傳入值)，做無用功
-//建議instance variable 都用this 好讓自己辨別
+    //如果不用this的話，由於local variable (傳入值)的取名權限高於instance variable(物件的變數)，
+    //所以會變成local variable 對自己賦值(兩個n都是傳入值)，做無用功
+    //建議instance variable 都用this 好讓自己辨別
 MyVector::MyVector(int n, int m[])
 {
   this->n = n;
