@@ -97,7 +97,7 @@ const MyVector MyVector::operator+ (const MyVector& v){ //回傳一個實體而�
 	sum+=v; 		//再用+=操作把sum跟v 相加之後回傳sum自己
 	return sum;
 }
-const MyVector operator+ (double x){
+const MyVector MyVector::operator+ (double x){
     MyVector sum(*this);
     for(int i=0;i<n;i++)
         sum.m[i]+=x;
