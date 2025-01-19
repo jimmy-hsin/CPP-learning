@@ -4,17 +4,15 @@ using namespace std;
     1. this 是一個指標，指向的位址就是物件的記憶體位址，所以我們要取值的時候可以用->來取用member element
     2. 為什麼要用this, 因為以之前的例子來說，傳入值的名字一定不能跟自身member的名字重複，如果我們用this，就能區分自身的member與傳入值的區別
         邏輯上比較直觀，可讀性較好
-  
 */
-
 //----------------------Part 1--------------------
 class A
 {
   private:
     int a;
   public:
-    void f() { cout << this << "\n"; }    
-    A* g() { return this; }              
+    void f() { cout << this << "\n"; }  //印出物件的地址  
+    A* g() { return this; }             //回傳一個物件指標，指向當前物件的位址
 };
 //--------------------------Part 2----------------------
 class MyVector{
@@ -55,8 +53,6 @@ void MyVector::print() {
         cout << m[i] << ", ";
     cout << m[n-1] << ")\n";
 }
-
-
 
 int main()
 {
