@@ -69,7 +69,7 @@ int main() // with overloading
     const MyVector a2(4, d2);
     const MyVector a3(a1);
   
-    cout << (a1 == a2 ? "Y" : "N") << "\n";
+    cout << (a1 != a2 ? "Y" : "N") << "\n";
     cout << (a1 < a3 ? "Y" : "N") << "\n";
     return 0;
 }
