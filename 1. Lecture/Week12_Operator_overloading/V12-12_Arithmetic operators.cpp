@@ -77,7 +77,6 @@ const MyVector& MyVector::operator= (const MyVector& v){
     if(this->n != v.n){        //如果兩的大小不一樣
         delete [] this->m;     //那就要把原本空間release，重新調整所需大小
         this->n = v.n;
-        
         if(v.n == 0)    this->m = nullptr;
         else            this->m=new double[this->n];
     }
