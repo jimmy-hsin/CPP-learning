@@ -77,16 +77,16 @@ int main() // with overloading
 {
 //-----------------Part 1-------------------------
     double d1[5] = {1, 2, 3, 4, 5};
-	MyVector a1(5, d1); 
-	cout << a1[3] << endl; 
-	a1[1] = 4; // 如果我們沒有call reference 的index overload 版本，那麼a1[1]就只是一個值，相當於對程式說 2=3，左邊只是值而不是容器，當然就會出錯
+    MyVector a1(5, d1); 
+    cout << a1[3] << endl; 
+    a1[1] = 4; // 如果我們沒有call reference 的index overload 版本，那麼a1[1]就只是一個值，相當於對程式說 2=3，左邊只是值而不是容器，當然就會出錯
 //-----------------Part 2-------------------------
-	double d2[4] = {1, 2, 3, 4};
-	MyVector a2(4, d2); 
-	const MyVector a3(a1); //把a3 宣告成 constant object
-	a2[0] = 999;	//這邊呼叫一次non-const []
-	if(a1 == a3)
-		cout<< a2[0] << ", " << a3[0]; ////這邊a2又呼叫一次non-const [], 但a3 呼叫的是const []的版本
-	//如果我們沒有要修改MyVector的物件的值，那麼在沒有non-const []版本的情況下， a2、a3都會去呼叫const []的版本
-	return 0;
+    double d2[4] = {1, 2, 3, 4};
+    MyVector a2(4, d2); 
+    const MyVector a3(a1); //把a3 宣告成 constant object
+    a2[0] = 999;	//這邊呼叫一次non-const []
+    if(a1 == a3)
+        cout<< a2[0] << ", " << a3[0]; ////這邊a2又呼叫一次non-const [], 但a3 呼叫的是const []的版本
+    //如果我們沒有要修改MyVector的物件的值，那麼在沒有non-const []版本的情況下， a2、a3都會去呼叫const []的版本
+    return 0;
 }
