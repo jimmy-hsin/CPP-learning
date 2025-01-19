@@ -1,10 +1,6 @@
 #include <iostream>
 #include <cstdlib>
 using namespace std;
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-const MyVector operator+ (double d, const MyVector& v){
-    return v + d; // using the previous definition
-}
 
 class MyVector{
   private:
@@ -18,18 +14,17 @@ class MyVector{
     ~MyVector(){    delete [] m;    }
   //function
     void print() const;
-//Comparison Operator
+  //Comparison Operator
     bool operator== (const MyVector& v) const; 
     bool operator!= (const MyVector& v) const {    return !(*this == v);     }
     bool operator<  (const MyVector& v) const;
-//Assignment operator
+  //Assignment operator
     double operator[] (int i) const;    
     double& operator[] (int i);   
     const MyVector& operator= (const MyVector& v);
     const MyVector& operator+=(const MyVector& v);
-//Arithmetic operators
-    const MyVector& operator+ (const MyVector& v);
-    const MyVector& operator+ (double x);
+//~~~~~~~~~~~~~~~~~因為要取v.n的值，但v.n是private member，所以要宣告friend~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+friend const MyVector operator+ (const MyVector& v, double d);
 };
 //Constructor
 MyVector::MyVector(int n, double m[]):n(n){
@@ -94,26 +89,33 @@ const MyVector& MyVector::operator+= (const MyVector& v){
             this->m[i] += v.m[i];  
     return *this;
 }
+
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-const MyVector MyVector::operator+ (const MyVector& v){ //回傳一個實體而不是reference是因為如果回傳reference的話，sum 的生命週期只會在這個function裡面，
-											  //之後就會被消滅，那之後再對function的結果做其他操作會容易出錯
-	MyVector sum(*this);//用copy constructor 複製出一個物件
-	sum+=v; 		//再用+=操作把sum跟v 相加之後回傳sum自己
+//把 + 相關的operation 都宣告成 global function， 同時把第一個function 宣告成friend of MyVector
+const MyVector operator+ (const MyVector& v, double d){ 
+	MyVector sum(v);//用copy constructor 複製出一個物件
+	for(int i = 0; i < v.n; i++)
+        sum[i] += d; // pairwise addition
 	return sum;
 }
-const MyVector operator+ (double x){
-    MyVector sum(*this);
-    for(int i=0;i<n;i++)
-        sum.m[i]+=x;
+const MyVector operator+ (const MyVector& v1, const MyVector& v2){
+    MyVector sum(v1);
+    sum += v2;
     return sum;
 }
+
+const MyVector operator+(double d, const MyVector& v){
+    return v+d; // using the previous definition
+}
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
 
 int main() // with overloading
 {
     double d1[5] = {1, 2, 3, 4, 5};
     MyVector a1(5, d1);
     MyVector a3(a1);
-    a3 = 3 + a1 + 4 + a3;
     a3.print();
+    MyVector a4=5+a1+3;
+    a4.print();
     return 0;
 }
