@@ -3,7 +3,7 @@
 using namespace std;
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const MyVector operator+ (double d, const MyVector& v){
-	return v + d; // using the previous definition
+    return v + d; // using the previous definition
 }
 
 class MyVector{
@@ -111,9 +111,9 @@ const MyVector operator+ (double x){
 int main() // with overloading
 {
     double d1[5] = {1, 2, 3, 4, 5};
-	MyVector a1(5, d1);
-	MyVector a3(a1);
-	a3 = 3 + a1 + 4 + a3;
-	a3.print();
-	return 0;
+    MyVector a1(5, d1);
+    MyVector a3(a1);
+    a3 = 3 + a1 + 4 + a3;
+    a3.print();
+    return 0;
 }
