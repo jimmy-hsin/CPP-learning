@@ -24,8 +24,8 @@ class MyVector{
     const MyVector& operator= (const MyVector& v);
     const MyVector& operator+=(const MyVector& v);
 //Arithmetic operators
-    const MyVector& operator+ (const MyVector& v);
-    const MyVector& operator+ (double x);
+    const MyVector operator+ (const MyVector& v);
+    const MyVector operator+ (double x);
 };
 //Constructor
 MyVector::MyVector(int n, double m[]):n(n){
