@@ -8,7 +8,7 @@ class MyVector{
   public:
     MyVector(); 
     MyVector(int dim,int v[]);  //constructor
-    MyVector:: MyVector(const MyVector& v); //copy constructor
+    MyVector(const MyVector& v); //copy constructor
 /*
   如果一個object被宣告成const 的話，那麼他只能呼叫也有被宣告成const 的function
   而const function 的操作也不能修改到class 裡的變數，不然會compilation error
