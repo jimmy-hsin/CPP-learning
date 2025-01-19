@@ -21,7 +21,7 @@ class MyVector{
   //function
     void print() const;
     bool operator== (const MyVector& v) const; 
-	bool operator!= (const MyVector& v) const {    return !(*this == v);     }
+    bool operator!= (const MyVector& v) const {    return !(*this == v);     }
     bool operator<  (const MyVector& v) const;
     double operator[] (int i) const;    
     double& operator[] (int i);   
