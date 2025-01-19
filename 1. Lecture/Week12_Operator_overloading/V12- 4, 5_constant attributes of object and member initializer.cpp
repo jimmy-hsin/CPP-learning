@@ -36,7 +36,7 @@ MyVector::MyVector(int n, int m[]):n(n)
 
 MyVector:: MyVector(const MyVector& v) : n(v.n)
 {
-  m = new double[n];
+  m = new int[n];
   for(int i = 0; i < n; i++)
     m[i] = v.m[i];
 }
@@ -64,6 +64,6 @@ bool MyVector::isEqual(const MyVector& v) const{
 int main()
 {
   //有的時候我們會希望建立一個variable都不會被更動的物件，比如說座標原點(dimension和位置都不變動)
-  double d[3] = {0, 0, 0};
+  int d[3] = {0, 0, 0};
   const MyVector ORIGIN_3D(3, d);
 }
