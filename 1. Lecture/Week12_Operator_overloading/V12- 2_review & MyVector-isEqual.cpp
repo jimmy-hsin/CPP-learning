@@ -38,7 +38,7 @@ MyVector::MyVector(int dim, double v[]) //self define constuctor
 }
 MyVector::MyVector(const MyVector& v)    //copy constuctor
 {   n=v.n;
-    m=new double [n];    //先new出一塊空間，再把V值傳進去，避免shallow copy
+    m=new double[n];    //先new出一塊空間，再把V值傳進去，避免shallow copy
     for(int i=0;i<n;i++)
         m[i]=v.m[i];        
 }
