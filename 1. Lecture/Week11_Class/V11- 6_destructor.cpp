@@ -17,7 +17,6 @@ using namespace std;
     *2.Destructor主要做的事就是將動態配置記憶空間釋出
 
 */
-
 class MyVector
 {
 private:
@@ -29,10 +28,6 @@ public:
     ~MyVector(); //Destructor
 };
 
-MyVector:: ~MyVector()
-{
-    delete [] m;
-}
 MyVector::MyVector()
 {
     n=0;
@@ -44,6 +39,10 @@ MyVector::MyVector(int dim,int value)
     m=new int[n];
     for(int i=0;i<n;i++)
         m[i]=value;
+}
+MyVector:: ~MyVector()
+{
+    delete [] m;
 }
 
 int main()
