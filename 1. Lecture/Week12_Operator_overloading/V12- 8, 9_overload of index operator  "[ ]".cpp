@@ -16,7 +16,7 @@ class MyVector{
     void print() const;
     bool operator== (const MyVector& v) const; 
 	bool operator!= (const MyVector& v) const;
-    bool operator<  (const MyVector& v) const;
+	bool operator<  (const MyVector& v) const;
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~新增部分~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     double operator[] (int i) const;    //只是要取值的版本
     double& operator[] (int i);         //有可能要更改值的版本，所以回傳值是元素所在的地址，且不宣告為const function
