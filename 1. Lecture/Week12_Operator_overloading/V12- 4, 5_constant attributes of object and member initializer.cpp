@@ -18,13 +18,15 @@ class MyVector{
     bool isEqual(const MyVector& v) const;
 };
 
+//寫法1: 
 MyVector::MyVector():n(0){  //由於n已經被const 宣告了，所以要用member initializer的寫法才能設定n的初始值
     m=nullptr;
 }
-//也可以寫成下面這樣，都用member initializer來寫:
+
+//寫法2: 也可以寫成下面這樣，都用member initializer來寫:
 MyVector::MyVector() : n(0), m(nullptr) {}
 
-//!!!***如果member variable 的初始化都是簡單形式的話，建議都用member initializer的寫法***!!!
+//     !!!***如果member variable 的初始化都是簡單形式的話，建議都用member initializer的寫法***!!!
 
 MyVector::MyVector(int n, int m[]):n(n)
 {
