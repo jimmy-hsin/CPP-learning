@@ -25,6 +25,7 @@ class MyVector{
     const MyVector& operator+=(const MyVector& v);
 //Arithmetic operators
 	const MyVector& operator+ (const MyVector& v);
+    const MyVector& operator+ (double x);
 };
 //Constructor
 MyVector::MyVector(int n, double m[]):n(n){
@@ -91,13 +92,18 @@ const MyVector& MyVector::operator+= (const MyVector& v){
     return *this;
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-const MyVector operator+ (const MyVector& v){ //回傳一個實體而不是reference是因為如果回傳reference的話，sum 的生命週期只會在這個function裡面，
+const MyVector MyVector::operator+ (const MyVector& v){ //回傳一個實體而不是reference是因為如果回傳reference的話，sum 的生命週期只會在這個function裡面，
 											  //之後就會被消滅，那之後再對function的結果做其他操作會容易出錯
 	MyVector sum(*this);//用copy constructor 複製出一個物件
 	sum+=v; 		//再用+=操作把sum跟v 相加之後回傳sum自己
 	return sum;
 }
-
+const MyVector operator+ (double x){
+    MyVector sum(*this);
+    for(int i=0;i<n;i++)
+        sum.m[i]+=x;
+    return sum;
+}
 
 int main() // with overloading
 {
