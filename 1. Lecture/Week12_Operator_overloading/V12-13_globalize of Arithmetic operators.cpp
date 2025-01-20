@@ -116,7 +116,7 @@ int main() // with overloading
     MyVector a1(5, d1);
     MyVector a3(a1);
     a3.print();
-    MyVector a4=5+a1+3;
+    MyVector a4=5+a1+3+a3;
     a4.print();
     return 0;
 }
