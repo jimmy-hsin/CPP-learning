@@ -21,8 +21,15 @@ int main()
         else
             cout << "no grade!"; 
     }
+    else 
+        cout<<"no file!";
     inFile.close();
-    return 0;
-
-   
+    //Part 2
+    while(!inFile.eof()){
+        inFile >> name;
+        inFile >> score;
+        sumScore += score;
+        scoreCount++; 
+    }
+    return 0; 
 }
