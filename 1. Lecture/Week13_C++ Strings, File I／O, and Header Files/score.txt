@@ -1,0 +1,6 @@
+Tony 100
+Alex 98
+Robin 95
+John 90
+Mary 100
+Bob 80
