@@ -24,7 +24,7 @@ class MyVector{
     const MyVector& operator= (const MyVector& v);
     const MyVector& operator+=(const MyVector& v);
 //~~~~~~~~~~~~~~~~~因為要取v.n的值，但v.n是private member，所以要宣告friend~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-friend const MyVector operator+ (const MyVector& v, double d);
+	friend const MyVector operator+ (const MyVector& v, double d);
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 };
 //Constructor
