@@ -1,4 +1,5 @@
 #include <iostream>
+#include "myMax.h" //如果function 需要用到一些預設的變數的話，要記得把header file 引入，他才知道這些預設值
 using namespace std; 
 
 int myMax(int a[], int len)
