@@ -2,7 +2,7 @@
 #define MyVector_H
 
 class MyVector{
-  private:
+  protected: //讓其他人可以繼承
     int n;
     double* m;
   public:
