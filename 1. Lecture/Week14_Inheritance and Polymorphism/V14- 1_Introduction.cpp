@@ -3,7 +3,7 @@
 using namespace std;
 
 class MyVector{
-  protected: //讓其他人可以繼承
+/**/protected://讓其他人可以繼承 
     int n;
     double* m;
   public:
@@ -129,18 +129,12 @@ const MyVector operator+(double d, const MyVector& v){
 
 
 
-
-
-
-
-
-
-
-class MyVector2D : public MyVector {
+class MyVector2D : public MyVector {	//繼承自MyVector， public 為預設繼承模式，使用其他模式會narrow down visibility
 public:
-    //constructor
+    //constructor， 還是得自己寫constructor，他會先呼叫建立parent，在建立自己
 	MyVector2D();
 	MyVector2D(double m[]);
+    //我們沒有定義 copy consturctor 和 destructor，所以預設是用parent的
 
 };
 MyVector2D::MyVector2D(){
