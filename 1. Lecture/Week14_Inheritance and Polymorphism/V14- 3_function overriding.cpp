@@ -137,8 +137,8 @@ const MyVector operator+(double d, const MyVector& v){
 class MyVector2D : public MyVector {	
 public:
 
-	MyVector2D();
-	MyVector2D(double m[]);
+    MyVector2D();
+    MyVector2D(double m[]);
 //如果定義了一個名稱跟parent一樣的function，那parent的function 就會被覆蓋掉
     void print() const;
 
