@@ -15,7 +15,7 @@ class MyVector{
     void print() const;
   //Comparison Operator
     bool operator== (const MyVector& v) const; 
-    bool operator!= (const MyVector& v) const {    return !(*this == v);     }
+    bool operator!= (const MyVector& v) const;
     bool operator<  (const MyVector& v) const;
   //Assignment operator
     double operator[] (int i) const;    
