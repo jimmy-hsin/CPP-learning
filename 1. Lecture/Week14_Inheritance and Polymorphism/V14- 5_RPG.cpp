@@ -47,9 +47,9 @@ string Character::getName(){
 //Warrior
 class Warrior : public Character{
   private:
-    static const int PO_LV = 10;
-    static const int KN_LV = 5;
-    static const int LU_LV = 5;
+    static const int PO_LV = 10; //每級力量上升值
+    static const int KN_LV = 5;  //每級智慧上升值
+    static const int LU_LV = 5;  //每級幸運上升值
   public:
     Warrior(string n) : Character(n, 1, PO_LV, KN_LV, LU_LV) {} 
     Warrior(string n, int lv) : Character(n, lv, lv * PO_LV, lv * KN_LV, lv * LU_LV) {}
@@ -83,5 +83,21 @@ class Wizard : public Character{
             this->levelUp(PO_LV, KN_LV, LU_LV);
     }
 };
+
+
+int main()
+{
+    Character* c[3]; 
+    c[0] = new Warrior("Alice", 10); 
+    c[1] = new Wizard("Sophie", 8); 
+    c[2] = new Warrior("Amy", 12); 
+    c[0]->beatMonster(10000);
+    for(int i = 0; i < 3; i++)
+      c[i]->print(); 
+    for(int i = 0; i < 3; i++)
+      delete c[i]; 
+    return 0;
+}
+
 
 
