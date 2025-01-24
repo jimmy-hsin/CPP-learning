@@ -34,7 +34,7 @@ MyVector::MyVector(int n, double m[]):n(n){
         this->m[i] = m[i];
 }
 MyVector:: MyVector(const MyVector& v) : n(v.n){
-    this->m=new double[n]; 
+    m=new double[n]; 
     for(int i = 0; i < n; i++)
         m[i] = v.m[i];
 }
@@ -54,7 +54,7 @@ bool MyVector::operator==(const MyVector& v) const{
     return true;
 }
 bool MyVector::operator< (const MyVector& v) const{
-    if(this->n!=v.n)                                
+    if(n!=v.n)                                
         return false; 
     for(int i=0;i<n;i++)
         if(this->m[i] >= v.m[i])   
@@ -74,20 +74,20 @@ double& MyVector::operator[] (int i) {
 
 const MyVector& MyVector::operator= (const MyVector& v){ 
     if(*this == v)      return *this;
-    if(this->n != v.n){        //如果兩的大小不一樣
-        delete [] this->m;     //那就要把原本空間release，重新調整所需大小
-        this->n = v.n;
-        if(v.n == 0)    this->m = nullptr;
-        else            this->m=new double[this->n];
+    if(n != v.n){        //如果兩的大小不一樣
+        delete [] m;     //那就要把原本空間release，重新調整所需大小
+        n = v.n;
+        if(v.n == 0)    m = nullptr;
+        else            m=new double[n];
     }
     for(int i = 0; i < n; i++)
         this->m[i] = v.m[i];
     return *this;
 }
 const MyVector& MyVector::operator+= (const MyVector& v){
-    if(this->n == v.n)
+    if(n == v.n)
         for(int i = 0; i < n; i++)
-            this->m[i] += v.m[i];  
+            m[i] += v.m[i];  
     return *this;
 }
 
