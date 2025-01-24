@@ -21,7 +21,7 @@ class Character{
     virtual void print();
     string getName();
 };
-
+//Constructor
 Character::Character(string n, int lv, int po, int kn, int lu) : name(n), level(lv), exp( pow(lv - 1, 2) * EXP_LV ), power(po), knowledge(kn), luck(lu) {}
 
 void Character::print(){
@@ -51,7 +51,7 @@ class Warrior : public Character{
     static const int KN_LV = 5;
     static const int LU_LV = 5;
   public:
-    Warrior(string n) : Character(n, 1, PO_LV, KN_LV, LU_LV) {}
+    Warrior(string n) : Character(n, 1, PO_LV, KN_LV, LU_LV) {} 
     Warrior(string n, int lv) : Character(n, lv, lv * PO_LV, lv * KN_LV, lv * LU_LV) {}
     void print(){
         cout << "Warrior ";
