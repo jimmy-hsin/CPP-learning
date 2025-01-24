@@ -19,6 +19,7 @@ MyVector:: MyVector(const MyVector& v) : n(v.n){
 MyVector:: ~MyVector(){    
   delete [] m;    
 }
+
 //------------------------Functions---------------------------------------------------
 void MyVector::print() const{   
     cout << "(";
@@ -26,6 +27,7 @@ void MyVector::print() const{
         cout << m[i] << ", ";
     cout << m[n-1] << ")\n";
 }
+
 //----------------------------Operator Overload-----------------------------------------
 //~~~~~~~~~~~~~~~~~~~~~Comparison overload~~~~~~~~~~~~~~~~~~~~
 bool MyVector::operator==(const MyVector& v) const{    
