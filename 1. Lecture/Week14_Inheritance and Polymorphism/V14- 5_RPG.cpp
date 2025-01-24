@@ -57,9 +57,9 @@ class Warrior : public Character{
         cout << "Warrior ";
         Character::print();
     }  
-    void beatMonster(int exp){
+    void beatMonster(int exp){  
         this->exp += exp;
-        while( this->exp >= pow(this->level, 2) * EXP_LV )
+        while( this->exp >= pow(this->level, 2) * EXP_LV )  //如果一個怪經驗值很多，一次會升很多級
             this->levelUp(PO_LV, KN_LV, LU_LV);
     }
 };
