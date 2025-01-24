@@ -19,13 +19,15 @@ MyVector:: MyVector(const MyVector& v) : n(v.n){
 MyVector:: ~MyVector(){    
   delete [] m;    
 }
-//Functions
+//------------------------Functions---------------------------------------------------
 void MyVector::print() const{   
     cout << "(";
     for(int i = 0; i < n - 1; i++)
         cout << m[i] << ", ";
     cout << m[n-1] << ")\n";
 }
+//----------------------------Operator Overload-----------------------------------------
+//~~~~~~~~~~~~~~~~~~~~~Comparison overload~~~~~~~~~~~~~~~~~~~~
 bool MyVector::operator==(const MyVector& v) const{    
     if(n!=v.n)                                
         return false; 
@@ -33,6 +35,9 @@ bool MyVector::operator==(const MyVector& v) const{
         if(m[i]!=v.m[i])
             return false;          
     return true;
+}
+bool MyVector::operator!= (const MyVector& v) const { 
+	return !(*this == v); 
 }
 bool MyVector::operator< (const MyVector& v) const{
     if(this->n!=v.n)                                
@@ -42,6 +47,7 @@ bool MyVector::operator< (const MyVector& v) const{
             return false;          
     return true;
 }
+//~~~~~~~~~~~~~~~~~Assignment overload~~~~~~~~~~~~~~~~~
 double MyVector::operator[] (int i) const{
     if(i < 0 || i >= n)
         exit(1); 
@@ -52,7 +58,6 @@ double& MyVector::operator[] (int i) {
         exit(1);
     return m[i];
 }
-
 const MyVector& MyVector::operator= (const MyVector& v){ 
     if(*this == v)      return *this;
     if(this->n != v.n){        //如果兩的大小不一樣
@@ -72,7 +77,7 @@ const MyVector& MyVector::operator+= (const MyVector& v){
     return *this;
 }
 
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//---------------------------------Global functions-----------------------------------
 //把 + 相關的operation 都宣告成 global function， 同時把第一個function 宣告成friend of MyVector
 const MyVector operator+ (const MyVector& v, double d){ 
 	MyVector sum(v);//用copy constructor 複製出一個物件
